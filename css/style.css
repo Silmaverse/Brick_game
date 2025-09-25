@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+body{
+ 
+     padding: 0;
+     font-family: "Source Code Pro", monospace;
+     text-align: center;
+     box-sizing: border-box;
+}
+
+#board{
+    background-color: black;
+    border: 2px solid skyblue;
+   
+}
