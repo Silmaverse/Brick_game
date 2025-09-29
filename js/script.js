@@ -121,7 +121,7 @@ function update(){
     else if(ball.y + ball.height >= boardHeight){
          
         //if ball touches bottom of canvas
-        context.font = "20px sans-serif";
+        context.font = "14px sans-serif";
         context.textAlign = "center";
         context.fillText("Game Over : Press Space to Restart" , boardWidth/2 , boardHeight/2);
         gameOver =true;
@@ -169,16 +169,17 @@ function outOfBounds(xPosition){
 
 function movePlayer(e) {
 
+ 
     if(gameOver){
-        if(e.Key =="Space"){
+
+        if(e.key ==" "){
              resetGame();
-             console.log("clicki")
+             
         }
     }
 
-    if(e.Key == "ArrowLeft"){
-         console.log("clicki")
-
+    if(e.key == "ArrowLeft"){
+         
         let nextPlayerX = player.x - player.velocityX;
 
         if(!outOfBounds(nextPlayerX)){
@@ -187,9 +188,9 @@ function movePlayer(e) {
         }
     }
 
-    if(e.Key == "ArrowRight"){
+    if(e.key == "ArrowRight"){
        
-         console.log("clicki")
+        
         let nextPlayerX =  player.x + playerVelocityX
 
         if(!outOfBounds(nextPlayerX)){
