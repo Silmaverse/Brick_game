@@ -1,14 +1,14 @@
 let board;
-let boardWidth = 500;
-let boardHeight = 500;
+let boardWidth =  window.innerWidth *0.8;
+let boardHeight = window.innerHeight *0.7;
 let score =0;
 let gameOver =false;
 let context ;
 
 //player
-let playerWidth = 80;
-let playerHeight = 10;
-let playerVelocityX  =50;
+let playerWidth = boardWidth *0.3;
+let playerHeight = 12;
+let playerVelocityX  = boardWidth *0.05;
 
 let player ={
 
@@ -19,10 +19,10 @@ let player ={
     velocityX : playerVelocityX ,
 }
 //ball
-let ballwidth = 10;
+let ballwidth =  boardWidth * 0.03;
 let ballHeight = 10;
-let ballVelocityX = 2 ;
-let ballVelcoityY = 1;
+let ballVelocityX =  boardWidth * 0.003;
+let ballVelcoityY = boardHeight * 0.002;
 
 let ball ={
 
@@ -36,15 +36,15 @@ let ball ={
 
 //blocks
 let blockArray = [] ;
-let blockWidth = 50 ;
-let blockHeight = 10 ;
-let blockColumns = 8 ;
+let blockColumns = 10 ;
+let blockWidth =  boardWidth/blockColumns -10 ;
+let blockHeight = boardHeight * 0.03 ;
 let blockRows = 3 ;
 let blockMaxRows = 10 ;
 let blockCount = 0;
 
 //starting  block corner topleft
-let blockX =15;
+let blockX = 5;
 let blockY =45 ;
 
 
@@ -122,7 +122,8 @@ function update(){
          
         //if ball touches bottom of canvas
         context.font = "20px sans-serif";
-        context.fillText("Game Over : Press Space to Restart" , 80 ,400);
+        context.textAlign = "center";
+        context.fillText("Game Over : Press Space to Restart" , boardWidth/2 , boardHeight/2);
         gameOver =true;
     }
 
@@ -169,12 +170,14 @@ function outOfBounds(xPosition){
 function movePlayer(e) {
 
     if(gameOver){
-        if(e.code =="Space"){
+        if(e.Key =="Space"){
              resetGame();
+             console.log("clicki")
         }
     }
 
-    if(e.code == "ArrowLeft"){
+    if(e.Key == "ArrowLeft"){
+         console.log("clicki")
 
         let nextPlayerX = player.x - player.velocityX;
 
@@ -184,8 +187,9 @@ function movePlayer(e) {
         }
     }
 
-    if(e.code == "ArrowRight"){
-
+    if(e.Key == "ArrowRight"){
+       
+         console.log("clicki")
         let nextPlayerX =  player.x + playerVelocityX
 
         if(!outOfBounds(nextPlayerX)){
@@ -250,7 +254,7 @@ function createBlocks(){
         }
     }
     
-    console.log(blockArray)
+   
 
     blockCount  =blockArray.length;
 
